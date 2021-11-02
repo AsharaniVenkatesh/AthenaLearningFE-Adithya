@@ -1,0 +1,23 @@
+.course-catalog-header {
+  display: flex;
+  padding: 70px;
+  align-items: center;
+  background-color: #d7e9f7;
+}
+.course-catalog-dropdown select {
+  height: 40px;
+  width: 240px;
+  border-radius: 5px;
+  border: 1px solid #2c2891;
+  outline: 0;
+  margin-left: 20px;
+  flex: 1;
+  margin-right: 30px;
+}
+.course-catalog-dropdown option {
+  font-size: 1rem;
+}
+.course-catalog-dropdown-header {
+  color: #2c2891;
+  font-weight: bold;
+}

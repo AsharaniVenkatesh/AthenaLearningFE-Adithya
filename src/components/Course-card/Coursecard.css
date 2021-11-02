@@ -1,0 +1,120 @@
+body {
+  background-color: #eee;
+}
+
+.tile {
+  width: 250px;
+  height: 310px;
+  margin: 10px;
+  background-color: white;
+  display: inline-block;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+  line-height: 1.5;
+  transition: all 0.4s ease-out;
+  /* box-shadow: 0px 35px 77px -17px rgba(0, 0, 0, 0.44); */
+  overflow: hidden;
+  color: white;
+  font-family: "Roboto";
+  border-radius: 10px;
+}
+.tile img {
+  height: 45%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index: 0; */
+  transition: all 0.4s ease-out;
+}
+.tile .text {
+  margin-top: 120px;
+  /* z-index: 1; */
+  position: absolute;
+  padding: 20px;
+  height: calc(100% - 60px);
+  color: black;
+}
+.tile h1 {
+  font-weight: 800;
+  font-size: 18px;
+  margin: 0;
+}
+
+.tile h2 {
+  font-size: 15px;
+  font-weight: 300;
+}
+.course-price {
+  margin-top: 7px;
+  font-size: 20px;
+  font-weight: 900;
+}
+.course-date {
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: 300;
+}
+/*
+.tile p {
+  font-weight: 300;
+  margin: 20px 0 0 0;
+  line-height: 25px;
+  transform: translateX(-200px);
+  transition-delay: 0.2s;
+} 
+ .animate-text {
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+} */
+
+.tile:hover img {
+  opacity: 0.2;
+}
+/* .tile:hover .animate-text {
+  transform: translateX(0);
+  opacity: 1;
+} */
+
+/* .tile:hover span {
+  opacity: 1;
+  transform: translateY(0px);
+}
+*/
+.course-button {
+  position: relative;
+  background-color: #5c38be;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 9px auto;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 100px;
+  margin-left: 20px;
+  top: 250px;
+}
+.popover-text {
+  padding: 8px;
+  margin-left: 10px;
+}
+.popover-text h1 {
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.popover-text h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.popover-text p {
+  font-size: 12px;
+  font-weight: 500;
+}
+.popover-text li {
+  font-size: 12px;
+  font-weight: 500;
+}
