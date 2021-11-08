@@ -32,6 +32,7 @@ const Courses = () => {
         setSelectedCategory(e.target.value)
         console.log(selectedCategory)
     }
+    
     return (
         <div>
             <Header />

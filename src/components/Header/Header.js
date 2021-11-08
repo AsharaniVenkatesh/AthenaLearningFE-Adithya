@@ -9,8 +9,9 @@ const Header = () => {
             </div>
             <div className="link-div">
                 <ul>
-                    <li className="link"><Link to="/courses">Courses</Link></li>
+                   
                     <li className="link get-started"><Link to="/login" >Login / Signup</Link></li>
+                    <Link to="/appt">Appointments</Link>
                 </ul>
 
                 {/* <a href="/" className="link">Courses</a>
