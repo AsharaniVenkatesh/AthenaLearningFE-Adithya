@@ -20,12 +20,15 @@ import TestingList from './components/AppointmentModule/TestingList';
 import ListTst from './components/AppointmentModule/ListTst';
 import Cookies from 'js-cookie';
 import AvailableDoctors from './components/AppointmentModule/AvailableDoctors';
+import ShowLocations from './components/AppointmentModule/ShowLocations';
 
 function App() {
 
   const[patientname,setpatientname]=useState("");
   const[cmpId,setcmpId]=useState("");
-  const[empId,setEmpId]=useState("");
+  const[empId,setempId]=useState("");
+const[locaId,setlocaId] = useState("");
+const[selDate,setDate] = useState("");
 
   return (
     <>
@@ -36,7 +39,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/courses" component={Courses} />
           <Route path="/coursepage/:courseId" component={CoursePage} />
-          <Route path="/showCalender" component={ShowCalender}/>
+          
           <Route path="/showDoctorsList" component={ShowDoctorsList}/>
           <Route path="/testing1" component={Testing1}/>
           <Route path="/tst2" component={Testing2}/>
@@ -45,10 +48,11 @@ function App() {
           <Route path="/fetchCmp" component={FetchCompanies}/>
           <Route path="/testList" component={TestList}/>
           <ProtectedRoute path="/list" component={props => <TestingList  setpatientname={setpatientname} patientname={patientname}/>} isAuth={Cookies.get("user")}/>
-  
+          <ProtectedRoute path="/showCalender" component={props => <ShowCalender setDate={setDate} />} isAuth={Cookies.get("user")}/>
           <ProtectedRoute path="/abcLis"  component={props => <ListTst cmpId={cmpId}  patientname={patientname}/>} isAuth={Cookies.get("user")}/>
-          <ProtectedRoute path="/availableDoctors" component={props => <AvailableDoctors setcmpId={setcmpId} setEmpId={setEmpId} cmpId={cmpId} />} isAuth={Cookies.get("user")}/>
-          <ProtectedRoute path="/slotAvailability" component={props => <SlotAvailability cmpId={cmpId} empId={empId}/>} isAuth={Cookies.get("user")}/>
+          <ProtectedRoute path="/availableDoctors" component={props => <AvailableDoctors locaId={locaId} setcmpId={setcmpId} selDate={selDate} setempId={setempId} cmpId={cmpId} />} isAuth={Cookies.get("user")}/>
+          <ProtectedRoute path="/slotAvailability" component={props => <SlotAvailability locaId={locaId} cmpId={cmpId} selDate={selDate} empId={empId}/>} isAuth={Cookies.get("user")}/>
+          <ProtectedRoute path="/showLocation" component={ props => <ShowLocations setlocaId={setlocaId} cmpId={cmpId}/>} isAuth={Cookies.get("user")}/>
           <Route path="*" component={HomePage} />
         
         </Switch>

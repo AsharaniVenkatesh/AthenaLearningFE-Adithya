@@ -7,24 +7,21 @@ const AvailableDoctors = memo((props) =>{
 
 const[doctors, availableDoctors] = useState([]);
 
-const [selectedEmployee, setSelectedEmployee] = useState(doctors.employee_id);
+const [selectedEmployee, setSelectedEmployee] = useState('');
 useEffect(() => {
     setSelectedEmployee(doctors.employee_id);
     console.log(selectedEmployee)
 }, []) 
-const history = useHistory();
+
 
 const onChangeCap = (e) =>{
     setSelectedEmployee(e.target.value)
     console.log(selectedEmployee)
-   return
-   (
-       <h1>{selectedEmployee}</h1>
-   )
+  
 }
-
+const history = useHistory();
 const rndr =  () =>{ 
-    props.setEmpId(selectedEmployee)
+    props.setempId(selectedEmployee)
     history.push('slotAvailability')
   }
 
@@ -33,8 +30,8 @@ const getEmp = async () => {
         try{ 
             const response = await basic.get('/getAvailableEmployeeByDate',{
                 params:{
-                    "date":'2021-11-25',
-                    "locationid":61,
+                    "date":props.selDate,
+                    "locationid":props.locaId,
                     "companyid":props.cmpId,
                 },
               });
@@ -46,21 +43,21 @@ const getEmp = async () => {
         }
     };
     getEmp();
-},[props.cmpId])
+},[])
 
 return(
     <div><center>
         <h1>Doctors</h1>
-        <h3>{props.cmpId}</h3>
+        <h3>Selected ComapnyId = {props.cmpId}</h3>
+        <h3>Selected LocationId = {props.locaId}</h3>
+        <h3>Selected Date = {props.selDate}</h3>
+        <ul onClick={onChangeCap} >
         {
           doctors.map((x, index)=>(
-        <ul onClick={onChangeCap} key={index} >
-           
             <li value={x.employee_id}>{x.employee_fname}</li>
-            
-        </ul>
        ))
           }
+          </ul>
 
 
            <button onClick={rndr}> Click Me </button>

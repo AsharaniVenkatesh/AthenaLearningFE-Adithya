@@ -34,7 +34,7 @@ try{
     const history = useHistory();
     const rndr =  () =>{ 
         props.setcmpId(selectedCategory)
-        history.push('availableDoctors')
+        history.push('showLocation')
       }
  
     return(
@@ -46,7 +46,7 @@ try{
 
            <select onChangeCapture={onChangeDropdown}>
            <option disabled>-- Select --</option>
-          
+           <option >Select Company</option>
                {
  result.map((x, index) => (
    
